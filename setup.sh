@@ -31,7 +31,7 @@ test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
 
 printf "Enabling media-player service........................... "
-systemctl enable /home/pi/pi-disp-demo/systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
+systemctl enable /home/pi/pi-demo-display/systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
 systemctl start systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
 test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
@@ -51,4 +51,4 @@ cat neo-qled-demo-?? > neo-qled-demo-1.h264
 test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
 sync
-printf "Installation complete, reboot the system................ "
+printf "Installation complete, reboot the system................ \n"

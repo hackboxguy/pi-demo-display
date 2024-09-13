@@ -5,7 +5,7 @@ Description=ffplay-demo-player
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/ffplay -autoexit /home/pi/pi-disp-demo/neo-qled-demo-1.h264
+ExecStart=/usr/bin/ffplay -autoexit /home/pi/pi-demo-display/neo-qled-demo-1.h264
 
 [Install]
 WantedBy=multi-user.target
