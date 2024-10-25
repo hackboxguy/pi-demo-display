@@ -26,13 +26,22 @@ fi
 #install dependencies
 printf "Installing dependencies ................................ "
 DEBIAN_FRONTEND=noninteractive apt-get update < /dev/null > /dev/null
-DEBIAN_FRONTEND=noninteractive apt-get install -qq ffmpeg mpv < /dev/null > /dev/null
+DEBIAN_FRONTEND=noninteractive apt-get install -qq ffmpeg mpv kodi kodi-eventclients-kodi-send < /dev/null > /dev/null
 test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
+#printf "Enabling media-player service........................... "
+#systemctl enable /home/pi/pi-demo-display/systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
+#systemctl start systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
+#test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
-printf "Enabling media-player service........................... "
-systemctl enable /home/pi/pi-demo-display/systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
-systemctl start systemd-ffplaydemo.service 1>/dev/null 2>/dev/null
+printf "Setting up kodi......................................... "
+runuser -l pi -c 'mkdir -p ~/.kodi/addons/service.autoexec'
+runuser -l pi -c 'cp kodi-files/addon.xml ~/.kodi/addons/service.autoexec'
+runuser -l pi -c 'cp kodi-files/autoexec.py ~/.kodi/addons/service.autoexec'
+runuser -l pi -c 'cp kodi-files/favourites.xml ~/.kodi/userdata/'
+runuser -l pi -c 'cp kodi-files/settings.xml ~/.kodi/userdata/addon_data/skin.estuary/'
+cp kodi-files/*.png /usr/share/kodi/media/
+cp kodi-files/*.jpg /usr/share/kodi/media/
 test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
 printf "Updating config.txt..................................... "
@@ -47,7 +56,11 @@ fi
 test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
 printf "Stitching demo-media-file............................... "
-cat neo-qled-demo-?? > neo-qled-demo-1.h264
+cat neo-qled-demo-?? > videos/neo-qled-demo-1.h264
+test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
+
+printf "Enable Kodi at startup.................................. "
+cp rc.local /etc/
 test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
 sync

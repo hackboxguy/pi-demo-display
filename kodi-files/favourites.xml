@@ -1,0 +1,4 @@
+<favourites>
+    <favourite name="NeoQLED-Demo" thumb="/home/pi/pi-demo-display/thumbnails/neo-qled-demo-1.jpg">PlayMedia(&quot;/home/pi/pi-demo-display/videos/neo-qled-demo-1.h264&quot;)</favourite>
+    <favourite name="Slideshow" thumb="/home/pi/pi-demo-display/thumbnails/thumbnail-slideshow.jpg">SlideShow("/home/pi/pi-demo-display/slideshow/")</favourite>
+</favourites>
