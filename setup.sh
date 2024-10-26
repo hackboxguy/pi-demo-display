@@ -35,13 +35,14 @@ test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 #test 0 -eq $? && echo "[OK]" || echo "[FAIL]"
 
 printf "Setting up kodi......................................... "
-runuser -l pi -c 'mkdir -p ~/.kodi/addons/service.autoexec'
-runuser -l pi -c 'mkdir -p ~/.kodi/userdata/addon_data/skin.estuary/'
-runuser -l pi -c 'cp kodi-files/addon.xml ~/.kodi/addons/service.autoexec'
-runuser -l pi -c 'cp kodi-files/autoexec.py ~/.kodi/addons/service.autoexec'
-runuser -l pi -c 'cp kodi-files/favourites.xml ~/.kodi/userdata/'
-runuser -l pi -c 'cp kodi-files/settings.xml ~/.kodi/userdata/addon_data/skin.estuary/'
-runuser -l pi -c 'cp kodi-files/guisettings.xml ~/.kodi/userdata/'
+runuser -l pi -c 'mkdir -p /home/pi/.kodi/addons/service.autoexec'
+runuser -l pi -c 'mkdir -p /home/pi/.kodi/userdata/addon_data/skin.estuary/'
+runuser -l pi -c 'cp kodi-files/addon.xml /home/pi/.kodi/addons/service.autoexec'
+runuser -l pi -c 'cp kodi-files/autoexec.py /home/pi/.kodi/addons/service.autoexec'
+runuser -l pi -c 'cp kodi-files/favourites.xml /home/pi/.kodi/userdata/'
+runuser -l pi -c 'cp kodi-files/settings.xml /home/pi/.kodi/userdata/addon_data/skin.estuary/'
+runuser -l pi -c 'cp kodi-files/guisettings.xml /home/pi/.kodi/userdata/'
+runuser -l pi -c 'cp kodi-files/profiles.xml /home/pi/.kodi/userdata/'
 
 cp kodi-files/*.png /usr/share/kodi/media/
 cp kodi-files/*.jpg /usr/share/kodi/media/
