@@ -1,0 +1,28 @@
+dtparam=audio=on
+camera_auto_detect=1
+auto_initramfs=1
+disable_overscan=1
+arm_64bit=1
+arm_boost=1
+dtoverlay=i2c1=on
+dtparam=i2c_arm=on
+dtoverlay=vc4-fkms-v3d
+disable_fw_kms_setup=1
+max_framebuffers=2
+hdmi_group=2
+hdmi_mode=87
+
+#27" Display
+hdmi_timings=4032 0 72 72 72 756 0 12 2 16 0 0 0 62 0 207000000 4
+hdmi_pixel_freq_limit=207000000
+framebuffer_width=4032
+framebuffer_height=756
+max_framebuffer_width=4032
+max_framebuffer_height=756
+
+config_hdmi_boost=4
+[cm4]
+otg_mode=1
+[cm5]
+dtoverlay=dwc2,dr_mode=host
+[all]

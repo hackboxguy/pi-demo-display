@@ -1,6 +1,6 @@
 #!/bin/sh
 #./setup.sh -t 14.6 
-USAGE="usage:$0 -t <type_of_display[14.6/15.6]>"
+USAGE="usage:$0 -t <type_of_display[14.6/15.6/27]>"
 DISP_TYPE="none"
 
 while getopts t: f
@@ -53,6 +53,8 @@ if [ $DISP_TYPE = "14.6" ]; then
 	cp ./config-14-6.txt /boot/firmware/config.txt 
 elif [ $DISP_TYPE = "15.6" ]; then
 	cp ./config-15-6.txt /boot/firmware/config.txt 
+elif [ $DISP_TYPE = "27" ]; then
+	cp ./config-27.txt /boot/firmware/config.txt
 else
 	echo "Invalid Display type arg!"
 	exit 1
